@@ -19,7 +19,7 @@ const AllProducts = ({ products=[]}) => {
                 const{id,title,description,price,image,category}=prod;
               return (
                 <>
-                  <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg">
+                  <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg cursor-pointer">
                     <a
                       href=""
                       className="block relative h-48 rounded overflow-hidden"
@@ -37,7 +37,7 @@ const AllProducts = ({ products=[]}) => {
                       <h2 className="text-gray-900 title-font text-lg font-medium">
                         {title}
                       </h2>
-                      <p className="mt-1">₹ {price}</p>
+                      <p className="mt-1 font-semibold">₹ {price}</p>
                     </div>
                   </div>
                 </>
