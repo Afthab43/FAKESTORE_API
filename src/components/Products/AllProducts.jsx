@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AllProducts = ({ products=[]}) => {
   return (
     <div>
       <div className="flex flex-col text-center w-full ">
-        <h2 className="text-xs text-purple-500 tracking-widest font-medium title-font mb-1">
+        <h2 className="text-xs text-purple-800 tracking-widest font-medium title-font mb-1">
           ALL POPULAR VIEW
         </h2>
-        <h1 className="sm:text-6xl text-2xl font-semibold title-font text-gray-900 hover:text-purple-900 cursor-default">
+        <h1 className="sm:text-6xl text-2xl font-semibold title-font text-gray-900 hover:text-purple-800 cursor-default">
           EXCLUSIVE PRODUCTS
         </h1>
       </div>
@@ -20,8 +21,8 @@ const AllProducts = ({ products=[]}) => {
               return (
                 <>
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg cursor-pointer">
-                    <a
-                      href=""
+                    <Link
+                      to={`/products/${id}`}
                       className="block relative h-48 rounded overflow-hidden"
                     >
                       <img
@@ -29,7 +30,7 @@ const AllProducts = ({ products=[]}) => {
                         className="object-contain object-center w-full h-full block"
                         src={image}
                       />
-                    </a>
+                    </Link>
                     <div className="mt-4">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                         {category}

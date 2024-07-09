@@ -16,28 +16,28 @@ const Rating = () => {
               </div>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl text-purple-800">
                 2.7K
               </h2>
-              <p className="leading-relaxed">Users</p>
+              <p className="leading-relaxed text-purple-900">Users</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl text-purple-800">
                 1.8K
               </h2>
-              <p className="leading-relaxed">Subscribes</p>
+              <p className="leading-relaxed text-purple-900">Subscribes</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl text-purple-800">
                 500
               </h2>
-              <p className="leading-relaxed">Downloads</p>
+              <p className="leading-relaxed text-purple-900">Downloads</p>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl text-purple-800">
                 1000+
               </h2>
-              <p className="leading-relaxed">Products</p>
+              <p className="leading-relaxed text-purple-900">Products</p>
             </div>
           </div>
           <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">

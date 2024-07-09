@@ -1,17 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './Home/Home';
+import Home from './pages/Home/Home';
 import { Route, Routes } from 'react-router-dom';
-import SingleProduct from './components/Products/SingleProduct';
+import Header from './components/headers/Header';
+import Footer from './components/footer/Footer';
+import SingleProduct from './pages/SingleProduct/SingleProduct';
 
 function App() {
   return (
-    < >
+    <div >
+    <Header />
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/products/:id' element={<SingleProduct/>}/>
     </Routes>
-    </>
+    <Footer />
+    </div>
   );
 }
 

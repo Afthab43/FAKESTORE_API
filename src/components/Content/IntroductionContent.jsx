@@ -1,4 +1,5 @@
 import React from "react";
+import content from '../../assets/content.jpg'
 
 const IntroductionContent = () => {
   return (
@@ -18,7 +19,7 @@ const IntroductionContent = () => {
               truffaut hexagon try-hard chambray.
             </p>
             <div className="flex justify-center">
-              <button className="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg">
+              <button className="inline-flex text-white bg-purple-900 border-0 py-2 px-6 focus:outline-none hover:bg-purple-800 rounded text-lg">
                 Button
               </button>
               <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
@@ -26,11 +27,11 @@ const IntroductionContent = () => {
               </button>
             </div>
           </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ">
             <img
-              className="object-cover object-center rounded"
+              className="object-cover object-center rounded h-[300px]"
               alt="hero"
-              src="https://dummyimage.com/720x600"
+              src={content}
             />
           </div>
         </div>
