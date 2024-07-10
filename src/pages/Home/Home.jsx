@@ -4,6 +4,7 @@ import AllProducts from "../../components/Products/AllProducts";
 import Features from "../../components/Features/Features";
 import Rating from "../../components/Rating/Rating";
 import Footer from "../../components/footer/Footer";
+import Categories from "../../components/categories/Categories";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -20,6 +21,7 @@ const Home = () => {
   return (
     <div>
       <IntroductionContent />
+      <Categories/>
       <>
         {products.length > 0 ? (
           <AllProducts products={products} />
@@ -27,7 +29,6 @@ const Home = () => {
           <div>loading..</div>
         )}
       </>
-      <Features />
       <Rating />
     </div>
   );

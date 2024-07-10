@@ -9,20 +9,20 @@ const SingleProduct = () => {
   const fetchsingleProduct = async () => {
     const res = await fetch(`https://fakestoreapi.com/products/${id}`);
     const data = await res.json();
-    console.log(data);
-    if (data) {
-      setProduct(data);
-    } else {
-      setProduct({});
-    }
+    setProduct(data);
   };
 
   useEffect(() => {
     fetchsingleProduct();
   }, []);
 
-  if (!Object.keys(product).length > 0)
-    return <div className="min-h-screen flex items-center justify-center text-2xl font-bold">product not found...</div>;
+
+  if (!Object.keys(product).length)
+    return (
+      <div className="min-h-screen flex items-center justify-center text-2xl font-bold">
+        product not found...
+      </div>
+    );
 
   return (
     <div>
@@ -85,7 +85,10 @@ const SingleProduct = () => {
                   </svg> */}
                   <span className="flex text-gray-600 ">
                     Ratings :{" "}
-                    <div className="ml-2 text-purple-800"> {product?.rating?.rate}</div>{" "}
+                    <div className="ml-2 text-purple-800">
+                      {" "}
+                      {product?.rating?.rate}
+                    </div>{" "}
                   </span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">

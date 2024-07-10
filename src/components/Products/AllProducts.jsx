@@ -17,7 +17,7 @@ const AllProducts = ({ products=[]}) => {
           <div className="flex flex-wrap -m-4">
             {products.map((prod) => {
                 console.log(prod);
-                const{id,title,description,price,image,category}=prod;
+                const{id,title,price,image,category}=prod;
               return (
                 <>
                   <div className="lg:w-1/4 md:w-1/2 p-4 w-full shadow-lg cursor-pointer">
