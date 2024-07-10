@@ -7,7 +7,7 @@ const CategoryProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchbyCategory = async () => {
       const res = await fetch(
         `https://fakestoreapi.com/products/category/${name}`
       );
@@ -15,7 +15,7 @@ const CategoryProducts = () => {
       console.log(data);
       setProducts(data);
     };
-    fetchProducts();
+    fetchbyCategory();
   }, []);
   if (products.length === 0) {
     return <h1>loading...</h1>;

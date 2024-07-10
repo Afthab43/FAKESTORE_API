@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import IntroductionContent from "../../components/Content/IntroductionContent";
 import AllProducts from "../../components/Products/AllProducts";
-import Features from "../../components/Features/Features";
 import Rating from "../../components/Rating/Rating";
-import Footer from "../../components/footer/Footer";
 import Categories from "../../components/categories/Categories";
 
 const Home = () => {
