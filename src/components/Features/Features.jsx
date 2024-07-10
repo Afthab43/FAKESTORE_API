@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Features = ({cards = [1,2,3]}) => {
+const Features = ({ cards = [] }) => {
   return (
     <div>
       <section className="text-gray-600 body-font">
@@ -10,11 +10,14 @@ const Features = ({cards = [1,2,3]}) => {
             {cards?.map((card) => {
               return (
                 <>
-                  <Link to={`/categories/${card}`} className="p-1 md:w-fit cursor-pointer">
+                  <Link
+                    to={`/categories/${card}`}
+                    className="p-1 md:w-fit cursor-pointer"
+                  >
                     <div className="flex rounded-lg h-full bg-gray-100 p-2 items-center justify-center flex-col">
                       <div className="flex items-center ">
                         <h2 className="text-gray-900 text-lg title-font font-medium capitalize">
-                         {card || 'Example card'}
+                          {card || "Example card"}
                         </h2>
                       </div>
                     </div>

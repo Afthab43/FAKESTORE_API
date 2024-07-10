@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AllProducts = ({ products=[]}) => {
+const AllProductsCards = ({ products=[]}) => {
   return (
     <div>
       <div className="flex flex-col text-center w-full ">
@@ -32,7 +32,7 @@ const AllProducts = ({ products=[]}) => {
                       />
                     </Link>
                     <div className="mt-4">
-                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                      <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 uppercase">
                         {category}
                       </h3>
                       <h2 className="text-gray-900 title-font text-lg font-medium">
@@ -53,4 +53,4 @@ const AllProducts = ({ products=[]}) => {
   );
 };
 
-export default AllProducts;
+export default AllProductsCards;

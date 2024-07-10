@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AllProducts from "../../components/Products/AllProducts";
+import AllProductsCards from "../../components/Products/AllProductsCards";
+import Categories from "../../components/categories/Categories";
 
 const CategoryProducts = () => {
-  const { name } = useParams;
+  const { name } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -16,14 +17,16 @@ const CategoryProducts = () => {
       setProducts(data);
     };
     fetchbyCategory();
-  }, []);
+  }, [name]);
   if (products.length === 0) {
+    console.log("loading ", products.length);
     return <h1>loading...</h1>;
   }
 
   return (
     <div>
-      <AllProducts products={products} />
+        <Categories/>
+      <AllProductsCards products={products} />
     </div>
   );
 };
