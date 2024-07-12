@@ -18,6 +18,7 @@ const CategoryProducts = () => {
     };
     fetchbyCategory();
   }, [name]);
+  
   if (products.length === 0) {
     console.log("loading ", products.length);
     return <h1>loading...</h1>;
