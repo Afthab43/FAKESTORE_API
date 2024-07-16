@@ -46,7 +46,7 @@ const Header = () => {
           })}
         </nav>
         <button className="inline-flex items-center text-white bg-purple-900 border-0 py-2 px-4 focus:outline-none hover:bg-purple-800 rounded text-base mt-4 md:mt-0">
-          Go to Cart
+          <Link to="/cart">Go to Cart</Link>
           <svg
             fill="none"
             stroke="currentColor"

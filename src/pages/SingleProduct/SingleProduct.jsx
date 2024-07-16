@@ -181,7 +181,7 @@ const SingleProduct = () => {
                   <button className=" ml-auto text-white bg-purple-900 border-0 py-2 px-6 focus:outline-none hover:bg-purple-800 rounded">
                     Buy now
                   </button>
-                  <button className=" ml-auto mr-2  border-purple-900 text-purple-900 py-2 px-6 focus:outline-none hover:bg-purple-900 hover:text-white border rounded">
+                  <button className=" ml-auto mr-2  border-red-600 text-red-600 py-2 px-6 focus:outline-none hover:bg-red-600 hover:text-white border rounded">
                     Add to Cart
                   </button>
                 </div>
