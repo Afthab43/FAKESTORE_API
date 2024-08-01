@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { IoArrowBack } from "react-icons/io5";
+import AllProductsCards from './../../components/Products/AllProductsCards';
+
 const CartPage = () => {
   return (
     <div>
@@ -25,17 +28,16 @@ const CartPage = () => {
                 Total
               </h3>
             </div>
-            <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+            <div className="flex items-center hover:bg-gray-100  px-6 py-5">
               <div className="flex w-2/5">
-                <div className="w-20">
-                  <img className="h-24" src="../../assets/content.jpg" alt="" />
+                <div className="w-20 h-20">
+                  <img className="h-24" src="../../assets/AllProductsCards" alt="" />
                 </div>
                 <div className="flex flex-col justify-between ml-4 flex-grow">
                   <span className="font-bold text-sm">Iphone 6s</span>
                   <span className=" text-xs">Apple</span>
                   <Link className="font-semibold hover:text-red-500 text-red-700 text-xs">
-                    {" "}
-                    Remove{" "}
+                    Remove
                   </Link>
                 </div>
               </div>
@@ -70,8 +72,8 @@ const CartPage = () => {
                 </div>
             </div> */}
 
-            <Link className="flex font-semibold text-purple-800  text-sm mt-10 max-w-fit hover:text-red-500">
-              Continue Shopping...
+            <Link to={'/products'} className="flex items-center justify-center gap-1 font-semibold text-purple-800  text-sm mt-10 max-w-fit hover:text-red-500">
+            <IoArrowBack /> Continue Shopping
             </Link>
           </div>
           <div className="w-1/4 px-8 py-10">

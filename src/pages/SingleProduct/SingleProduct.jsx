@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const SingleProduct = () => {
+  const toNavigate = useNavigate();
+
   const { id } = useParams();
   const [product, setProduct] = useState({});
   console.log(id, product);
@@ -14,8 +16,32 @@ const SingleProduct = () => {
 
   useEffect(() => {
     fetchsingleProduct();
-  }, []);
+  },[]);
 
+  const handleCart = (product, guide) => {
+    console.log(product);
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const isProductInCart = cart.find((item) => item.id === product.id);
+    if (!isProductInCart) {
+      const updatedCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+    } else {
+      localStorage.setItem("cart",JSON.stringify([...cart, { ...product, quantity: 1 }]));
+    }
+
+    if (guide) {
+      toNavigate("/cart");
+    }
+  };
+
+  const addToCart = () => handleCart(product);
+
+  const buyNow = () => handleCart(product, true);
 
   if (!Object.keys(product).length)
     return (
@@ -43,46 +69,6 @@ const SingleProduct = () => {
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
-                  {/* <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className="w-4 h-4 text-indigo-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                  </svg>
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className="w-4 h-4 text-indigo-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                  </svg>
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className="w-4 h-4 text-indigo-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                  </svg>
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className="w-4 h-4 text-indigo-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                  </svg>
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    className="w-4 h-4 text-indigo-500"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                  </svg> */}
                   <span className="flex text-gray-600 ">
                     Ratings :{" "}
                     <div className="ml-2 text-purple-800">
@@ -92,7 +78,7 @@ const SingleProduct = () => {
                   </span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
-                  <Link href="" className="text-purple-800">
+                  <Link className="text-purple-800">
                     <svg
                       fill="currentColor"
                       className="w-5 h-5"
@@ -119,16 +105,7 @@ const SingleProduct = () => {
                       <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                     </svg>
                   </Link>
-                  {/* <a href="" className="text-gray-500">
-                    <svg
-                      fill="currentColor"
-                      className="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                    </svg>
-                  </a> */}
-                  <Link href="" className="ml-1 text-purple-800">
+                  <Link className="ml-1 text-purple-800">
                     <svg
                       fill="currentColor"
                       className="w-5 h-5"
@@ -178,23 +155,19 @@ const SingleProduct = () => {
                   ₹ {product?.price}
                 </span>
                 <div className=" flex gap-1">
-                  <button className=" ml-auto text-white bg-purple-900 border-0 py-2 px-6 focus:outline-none hover:bg-purple-800 rounded">
+                  <button
+                    className=" ml-auto text-white bg-purple-900 border-0 py-2 px-6 focus:outline-none hover:bg-purple-800 rounded "
+                    onClick={buyNow}
+                  >
                     Buy now
                   </button>
-                  <button className=" ml-auto mr-2  border-red-600 text-red-600 py-2 px-6 focus:outline-none hover:bg-red-600 hover:text-white border rounded">
+                  <button
+                    className=" ml-auto mr-2  border-red-600 text-red-600 py-2 px-6 focus:outline-none hover:bg-red-600 hover:text-white border rounded"
+                    onClick={addToCart}
+                  >
                     Add to Cart
                   </button>
                 </div>
-
-                {/* <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                  <svg
-                    fill="currentColor"
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                  </svg>
-                </button> */}
               </div>
             </div>
           </div>

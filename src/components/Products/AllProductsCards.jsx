@@ -44,8 +44,6 @@ const AllProductsCards = ({ products=[]}) => {
                 </>
               );
             })}
-
-            
           </div>
         </div>
       </section>

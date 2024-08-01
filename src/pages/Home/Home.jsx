@@ -3,14 +3,12 @@ import IntroductionContent from "../../components/Content/IntroductionContent";
 import AllProducts from "../../components/Products/AllProductsCards";
 import Rating from "../../components/Rating/Rating";
 
-import Categories from "../../components/categories/Categories";
-
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch("https://fakestoreapi.com/products?limit=12");
+      const res = await fetch("https://fakestoreapi.com/products?limit=8");
       const data = await res.json();
       console.log(data);
       setProducts(data);
@@ -20,7 +18,7 @@ const Home = () => {
   return (
     <div>
       <IntroductionContent />
-      <Categories/>
+      {/* <Categories/> */}
       <>
         {products.length > 0 ? (
           <AllProducts products={products} />
